@@ -17,14 +17,17 @@ import { loadTodos, saveTodos } from './utils';
 const todoId = () => Math.random().toString(36).slice(2, 9);
 
 function App() {
+  // Application state
   const [todos, setTodos] = useState<Todo[]>(loadTodos());
   const [title, setTitle] = useState("");
   const [dueDate, setDueDate] = useState("");
 
+  // Edit dialog state
   const [editing, setEditing] = useState<Todo | null>(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDue, setEditDue] = useState("");
 
+  // Persist todos whenever they change
   useEffect(() => saveTodos(todos), [todos]);
 
   const addTask = () => {
@@ -45,17 +48,21 @@ function App() {
     setDueDate("");
   };
 
+  // Toggle completion state
   const toggleComplete = (id: string) =>
     setTodos(todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
 
+  // Remove a task
   const remove = (id: string) => setTodos(todos.filter(t => t.id !== id));
 
+  // Open edit dialog
   const openEdit = (t: Todo) => {
     setEditing(t);
     setEditTitle(t.title);
     setEditDue(t.dueDate);
   };
 
+  // Save edited task
   const saveEdit = () => {
     if (!editing) return;
 

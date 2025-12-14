@@ -1,5 +1,6 @@
 import { TextField, Button, Box } from "@mui/material";
 
+// Controlled form component for adding new tasks
 interface TodoFormProps {
   title: string;
   dueDate: string;

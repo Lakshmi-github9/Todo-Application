@@ -1,3 +1,4 @@
+// Modal dialog for editing an existing task
 import {
   Dialog,
   DialogTitle,

@@ -3,6 +3,7 @@ import { isBefore, isSameDay, parseISO } from "date-fns";
 
 const STORAGE_KEY = "todos_list";
 
+// Load todos safely from localStorage
 export const loadTodos = (): Todo[] => {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
@@ -12,6 +13,7 @@ export const loadTodos = (): Todo[] => {
   }
 };
 
+// Save todos whenever state changes
 export const saveTodos = (todos: Todo[]) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));

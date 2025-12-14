@@ -1,3 +1,4 @@
+// Displays a single todo row with actions
 import {
   ListItem,
   Checkbox,
@@ -24,8 +25,10 @@ export const TodoItem = ({ todo, onToggle, onEdit, onDelete }: TodoItemProps) =>
     component={Paper}
     sx={{ ...getTodoRowStyle(todo), mb: 1, borderRadius: 1 }}
   >
+    {/* Completion checkbox */}
     <Checkbox checked={todo.completed} onChange={() => onToggle(todo.id)} />
 
+    {/* Task details */}
     <Box flex={1}>
       <Typography variant="subtitle1">{todo.title}</Typography>
       <Typography variant="caption">
@@ -33,11 +36,13 @@ export const TodoItem = ({ todo, onToggle, onEdit, onDelete }: TodoItemProps) =>
       </Typography>
     </Box>
 
-    <IconButton onClick={() => onEdit(todo)}>
+    {/* Edit action */}
+    <IconButton aria-label="edit" onClick={() => onEdit(todo)}>
       <EditIcon />
     </IconButton>
 
-    <IconButton onClick={() => onDelete(todo.id)}>
+    {/* Delete action */}
+    <IconButton aria-label="delete" onClick={() => onDelete(todo.id)}>
       <DeleteIcon />
     </IconButton>
   </ListItem>

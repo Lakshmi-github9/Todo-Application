@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -48,4 +48,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 =======
 # Todo-Application
 Simple Todo Application using Reactjs with TypeScript where user can add/edit/delete tasks. Based on the due date color of the task list has been varied
->>>>>>> efbed43bcf2d73c9bff65b54343d5b641419f5c2
+
